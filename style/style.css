@@ -8,7 +8,7 @@ body {
     background: url("../images/manuls.png") no-repeat fixed center;
     background-size: cover;
 }
-*, *:before, *:after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -54,7 +54,7 @@ header {
     transition: color .2s linear;
 }
 .fio-text-after:hover {
-    color: #D2691E;
+    color: #fa7a0d;
 }
 
 /* MAIN */
@@ -102,7 +102,7 @@ table, td, th {
 table {
     width: 100%;
 }
-td {
+th > td {
     padding: 10px;
 }
 

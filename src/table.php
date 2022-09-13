@@ -1,7 +1,6 @@
 <?php
 
-if (isset($_SESSION['shots'])) {
-    date_default_timezone_set('Europe/Moscow');
+function printValuesFromDb(): bool {
     $mysqli = new mysqli(
         'localhost',
         'root',
@@ -17,14 +16,8 @@ if (isset($_SESSION['shots'])) {
             echo '</tr>';
         }
         $mysqli->close();
-    } else {
-        foreach ($_SESSION['shots'] as $key => $value) {
-            echo '<tr class="table-rows">';
-            printf("<td> %s </td>", $key + 1);
-            printValuesWithoutNumber($value);
-            echo '</tr>';
-        }
-    }
+        return true;
+    } else return false;
 }
 
 function printValuesWithoutNumber($array): void {
@@ -32,6 +25,17 @@ function printValuesWithoutNumber($array): void {
     printf("<td> %s </td>", $array['x']);
     printf("<td> %s </td>", $array['y']);
     printf("<td> %s </td>", $array['res']);
-    printf("<td> %s ms</td>", $array['running_time']);
-    printf("<td> %s </td>", date('H:i:s', time()));
+    printf("<td> %.6f ms</td>", $array['running_time']);
+    printf("<td> %s </td>", $array['curr_time']);
+}
+
+if (!printValuesFromDb()) {
+    if (isset($_SESSION['shots'])) {
+        foreach ($_SESSION['shots'] as $key => $value) {
+            echo '<tr class="table-rows">';
+            printf("<td> %s </td>", $key + 1);
+            printValuesWithoutNumber($value);
+            echo '</tr>';
+        }
+    }
 }

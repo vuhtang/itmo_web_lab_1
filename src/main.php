@@ -43,13 +43,16 @@ function main(): void
     } else $res = 'MISS';
 
     $runningTime = microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'];
+    date_default_timezone_set('Europe/Moscow');
+    $curr_time = date('H:i:s', time());
 
     $shot = [
         'r' => $r,
         'x' => $x,
         'y' => $y,
         'res' => $res,
-        'running_time' => $runningTime
+        'running_time' => $runningTime,
+        'curr_time' =>$curr_time
     ];
 
     $_SESSION['shots'][] = $shot;
@@ -64,12 +67,10 @@ function main(): void
     if (!$mysqli->connect_error) {
         echo 'nice';
         $mysqli->set_charset("utf8");
-        $sql = 'INSERT INTO shots (r, x, y, res, running_time) VALUES ('
-            . $r . ',' . $x . ',' . $y . ',\'' . $res . '\',' . $runningTime . ')';
-        echo $sql;
+        $sql = 'INSERT INTO shots (r, x, y, res, running_time, curr_time) VALUES ('
+            . $r . ',' . $x . ',' . $y . ',\'' . $res . '\',' . $runningTime . ',\''. $curr_time . '\')';
         $mysqli->query($sql);
         $mysqli->close();
-        echo 'very nice';
     }
 
     header('Location: ../index.php');
