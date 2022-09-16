@@ -1,6 +1,6 @@
 import {consts} from "./resources/constants.js";
 
-const babahers = {
+const api = {
 
     fetchShot: function (x, y, r) {
         let table = consts.table
@@ -38,6 +38,6 @@ const babahers = {
     }
 }
 
-export const fetchShot = babahers.fetchShot
-export const requestShots = babahers.requestShots
-export const clearHistory = babahers.clearHistory
+export const fetchShot = api.fetchShot
+export const requestShots = api.requestShots
+export const clearHistory = api.clearHistory

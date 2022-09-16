@@ -1,5 +1,5 @@
 import {consts} from "./resources/constants.js";
-import {clearHistory} from "./babah.js";
+import {clearHistory} from "./api-functions.js";
 
 function listenButtons() {
 

@@ -1,5 +1,5 @@
 import listenUserChanges from "./listener.js";
-import {requestShots} from "./babah.js";
+import {requestShots} from "./api-functions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     startApplication()
