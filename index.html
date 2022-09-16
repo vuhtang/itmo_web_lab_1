@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,23 +35,23 @@ session_start();
                     </div>
                 </div>
                 <div class="panel-element">
-                    <form id="shot" action="src/main.php" method="post">
+                    <form id="shot">
                         <div class="panel-element-inner">
                             <h4 id="r-label">R: <span id="r_visible">1</span></h4>
                             <input type="hidden" name="r" id="r_value" value="1">
-                            <button type="button" onclick="setValueR(this.value)" id="r_1" value="1">
+                            <button type="button" class="r-buttons" value="1">
                                 1
                             </button>
-                            <button type="button" onclick="setValueR(this.value)" id="r_1.5" value="1.5">
+                            <button type="button" class="r-buttons" value="1.5">
                                 1.5
                             </button>
-                            <button type="button" onclick="setValueR(this.value)" id="r_2" value="2">
+                            <button type="button" class="r-buttons" value="2">
                                 2
                             </button>
-                            <button type="button" onclick="setValueR(this.value)" id="r_2.5" value="2.5">
+                            <button type="button" class="r-buttons" value="2.5">
                                 2.5
                             </button>
-                            <button type="button" onclick="setValueR(this.value)" id="r_3" value="3">
+                            <button type="button" class="r-buttons" id="r_3" value="3">
                                 3
                             </button>
                         </div>
@@ -94,7 +90,7 @@ session_start();
                             <h4>Y</h4>
                             <span id="y_warning" class="warning"></span>
                             <br>
-                            <input id="y" type="text" name="y">
+                            <input id="y" maxlength="6" type="text">
                         </div>
                         <div class="panel-element-inner">
                             <button id="fire" type="submit" form="shot">
@@ -115,7 +111,6 @@ session_start();
                 <table>
                     <thead>
                     <tr>
-                        <th>№</th>
                         <th>R</th>
                         <th>X</th>
                         <th>Y</th>
@@ -125,21 +120,18 @@ session_start();
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    include 'src/table.php';
-                    ?>
+
                     </tbody>
                 </table>
             </div>
             <div class="panel-element">
-                <form action="src/clearHistory.php">
-                    <button type="submit" name="clear">Clear history</button>
+                <form>
+                    <button type="submit" id="clear">Clear history</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 </body>
-<script src="src/validation.js"></script>
-<script src="src/radiusHandler.js"></script>
+<script type="module" src="src/index.js"></script>
 </html>
