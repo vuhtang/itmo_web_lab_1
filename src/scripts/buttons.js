@@ -1,4 +1,4 @@
-import {consts} from "./resources/constants.js";
+import {consts} from "../resources/constants.js";
 import {clearHistory} from "./api-functions.js";
 
 function listenButtons() {

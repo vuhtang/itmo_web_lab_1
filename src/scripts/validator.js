@@ -1,5 +1,5 @@
-import {consts} from "./resources/constants.js";
-import {messages} from "./resources/messages.js";
+import {consts} from "../resources/constants.js";
+import {messages} from "../resources/messages.js";
 import {fetchShot} from "./api-functions.js";
 
 function bindValidation() {

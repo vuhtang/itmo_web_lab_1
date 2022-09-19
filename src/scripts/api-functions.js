@@ -1,4 +1,5 @@
-import {consts} from "./resources/constants.js";
+import {consts} from "../resources/constants.js";
+import {BASE_URL} from "./routes.js";
 
 const api = {
 
@@ -8,7 +9,7 @@ const api = {
         formData.append('x', x)
         formData.append('y', y)
         formData.append('r', r)
-        fetch('http://localhost:8888/src/server/main.php', {
+        fetch(BASE_URL + 'src/server/main.php', {
             method: 'POST',
             mode: 'no-cors',
             body: formData
@@ -19,7 +20,7 @@ const api = {
 
     requestShots: function () {
         let table = consts.table
-        fetch('http://localhost:8888/src/server/main.php?action=request', {
+        fetch(BASE_URL + 'src/server/main.php?action=request', {
             method: 'GET',
             mode: 'no-cors'
         }).then(res => res.text()
@@ -29,11 +30,11 @@ const api = {
 
     clearHistory: function () {
         let table = consts.table
-        fetch('http://localhost:8888/src/server/main.php?action=clear', {
+        fetch(BASE_URL + 'src/server/main.php?action=clear', {
             method: 'GET',
             mode: 'no-cors'
         }).then(res => res.text()
-            .then(strRes => table.innerHTML = ""))
+            .then(() => table.innerHTML = ""))
             .catch(reason => console.log("error:(( " + reason))
     }
 }
