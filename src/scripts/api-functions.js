@@ -9,7 +9,7 @@ const api = {
         formData.append('x', x)
         formData.append('y', y)
         formData.append('r', r)
-        fetch(BASE_URL + 'src/server/main.php', {
+        fetch(BASE_URL + 'server/main.php', {
             method: 'POST',
             mode: 'no-cors',
             body: formData
@@ -20,7 +20,7 @@ const api = {
 
     requestShots: function () {
         let table = consts.table
-        fetch(BASE_URL + 'src/server/main.php?action=request', {
+        fetch(BASE_URL + 'server/main.php?action=request', {
             method: 'GET',
             mode: 'no-cors'
         }).then(res => res.text()
@@ -30,7 +30,7 @@ const api = {
 
     clearHistory: function () {
         let table = consts.table
-        fetch(BASE_URL + 'src/server/main.php?action=clear', {
+        fetch(BASE_URL + 'server/main.php?action=clear', {
             method: 'GET',
             mode: 'no-cors'
         }).then(res => res.text()
